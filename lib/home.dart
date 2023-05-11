@@ -1,18 +1,9 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({required this.startQuiz, super.key});
 
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-
-  void toQuestionScreen() {
-    Navigator.pushNamed(context, '/questionScreen');
-  }
-
+  final void Function() startQuiz;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +30,7 @@ class _HomePageState extends State<HomePage> {
               height: 40,
             ),
             OutlinedButton.icon(
-              onPressed: toQuestionScreen,
+              onPressed: startQuiz,
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.white,
               ),
